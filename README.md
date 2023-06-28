@@ -1,42 +1,45 @@
 ﻿# redesocial-filme
 
 
-# QUERIES para criar banco de dados MYSQL
-
+# Queries para criar banco de dados MYSQL
+<br>
 <p align = "justify">CREATE DATABASE rede_social_filmes;
 
 use rede_social_filmes;
 
-CREATE TABLE users(
-id INT AUTO_INCREMENT PRIMARY KEY,
-name VARCHAR(100) NOT NULL,
-lastname VARCHAR(100) NOT NULL,
-email VARCHAR(100) NOT NULL,
-password VARCHAR(200) NOT NULL,
-image VARCHAR(200),
-bio TEXT,
-token VARCHAR(250)
+CREATE TABLE users(<br>
+id INT AUTO_INCREMENT PRIMARY KEY,<br>
+name VARCHAR(100) NOT NULL,<br>
+lastname VARCHAR(100) NOT NULL,<br>
+email VARCHAR(100) NOT NULL,<br>
+password VARCHAR(200) NOT NULL,<br>
+image VARCHAR(200),<br>
+bio TEXT,<br>
+token VARCHAR(250)<br>
+);<br>
+
+CREATE TABLE movies(<br>
+id INT AUTO_INCREMENT PRIMARY KEY,<br>
+title VARCHAR(100) NOT NULL,<br>
+description TEXT NOT NULL,<br>
+image VARCHAR(200) NOT NULL,<br>
+trailer VARCHAR(200),<br>
+category VARCHAR(45),<br>
+users_id INT,<br>
+CONSTRAINT fk_users FOREIGN KEY (users_id) REFERENCES users (id)<br>
 );
 
-CREATE TABLE movies(
-id INT AUTO_INCREMENT PRIMARY KEY,
-title VARCHAR(100) NOT NULL,
-description TEXT NOT NULL,
-image VARCHAR(200) NOT NULL,
-trailer VARCHAR(200),
-category VARCHAR(45),
-users_id INT,
-CONSTRAINT fk_users FOREIGN KEY (users_id) REFERENCES users (id)
-);
-
-CREATE TABLE reviews(
-id INT AUTO_INCREMENT PRIMARY KEY,
-rating INT NOT NULL,
-review VARCHAR(100) NOT NULL,
-movies_id INT,
-users_id INT,
-CONSTRAINT fk_movies FOREIGN KEY (movies_id) REFERENCES movies (id)
+CREATE TABLE reviews(<br>
+id INT AUTO_INCREMENT PRIMARY KEY,<br>
+rating INT NOT NULL,<br>
+review VARCHAR(100) NOT NULL,<br>
+movies_id INT,<br>
+users_id INT,<br>
+CONSTRAINT fk_movies FOREIGN KEY (movies_id) REFERENCES movies (id)<br>
 );
 
 ALTER TABLE reviews ADD CONSTRAINT fk_users_users FOREIGN KEY (users_id) REFERENCES users (id);
 </p>
+<br>
+
+# Fim da criação do Banco
