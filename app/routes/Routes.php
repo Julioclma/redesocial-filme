@@ -14,9 +14,8 @@ class Routes
                 "reqType" => "GET",
                 "method" => "index",
                 "controller" => HomeController::class,
-                "view" => FilesPath::view()."index.php"
+                "view" => FilesPath::view() . "index.php"
             ],
-
 
         ];
     }

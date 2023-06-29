@@ -8,19 +8,20 @@ use Aplication\routes\Routes;
 
 class DefaultController
 {
-
-    protected function index(): void
+    public function index(): void
     {
-        var_dump($this->findViewPath());
+        include($this->findViewPath());
     }
     protected function findViewPath(): string
     {
         foreach (Routes::routes() as $key => $route) {
             if ($key === RequestServer::reqPath()) {
-                return $route['view'];
+                if (array_key_exists('view', $route) && strlen($route['view']) > 0) {
+                    return $route['view'];
+                }
             }
         }
 
-        throw new ViewNotFound("Caminho para View não encontrada");
+        throw new ViewNotFound("Caminho para View não encontrado");
     }
 }

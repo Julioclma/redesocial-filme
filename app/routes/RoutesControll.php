@@ -12,18 +12,8 @@ class RoutesControll
     public function process(): void
     {
         $params = $this->defineReq();
-
-        if (!$this->isIndex($params['method'])) {
-        }
-
         $method = $params['method'];
         ($params['controller'])->$method();
-        return;
-    }
-
-    private function isIndex(string $method): bool
-    {
-        return $method === 'index' ? true : false;
     }
 
 
@@ -31,6 +21,7 @@ class RoutesControll
     {
         foreach (Routes::routes() as $key => $route) {
             if ($key === RequestServer::reqPath() && $route['reqType'] === RequestServer::reqType()) {
+                
                 $controller = new $route['controller'];
 
                 $checkMethod = method_exists($controller, $route['method']);
