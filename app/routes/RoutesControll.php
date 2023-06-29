@@ -21,7 +21,7 @@ class RoutesControll
     {
         foreach (Routes::routes() as $key => $route) {
             if ($key === RequestServer::reqPath() && $route['reqType'] === RequestServer::reqType()) {
-                
+
                 $controller = new $route['controller'];
 
                 $checkMethod = method_exists($controller, $route['method']);
@@ -31,8 +31,8 @@ class RoutesControll
                 }
                 return ["controller" => $controller, "method" => $route['method'], "reqType" => RequestServer::reqType()];
             }
-
-            throw new DomainException("Nenhuma requisição encontrada!");
         }
+
+        throw new DomainException("Nenhuma requisição encontrada!");
     }
 }

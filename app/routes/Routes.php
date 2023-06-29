@@ -15,8 +15,7 @@ class Routes
                 "method" => "index",
                 "controller" => HomeController::class,
                 "view" => FilesPath::view() . "index.php"
-            ],
-
+            ]
         ];
     }
 }
