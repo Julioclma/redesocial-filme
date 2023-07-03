@@ -14,3 +14,18 @@ use Aplication\helpers\path\FilesPath;
 </head>
 
 <body>
+    <nav>
+        <div>
+            <ul>
+                <li><a href="">Entrar</a></li>
+                <li><a href="">Cadastrar</a></li>
+            </ul>
+        </div>
+        <div>
+            <form action="#">
+                <input type="text" name="search">
+                <button type="submit">Pesquisar</button>
+            </form>
+        </div>
+
+    </nav>
