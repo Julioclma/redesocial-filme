@@ -43,6 +43,12 @@ class Routes
                 "method" => "index",
                 "controller" => RegisterController::class,
                 "view" => FilesPath::view() . "users/register.php"
+            ],
+            "/add-user" => [
+                "reqType" => "POST",
+                "method" => "create",
+                "controller" => RegisterController::class,
+                "view" => FilesPath::view() . "users/register.php"
             ]
         ];
     }
