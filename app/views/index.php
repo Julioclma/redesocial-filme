@@ -1,3 +1,9 @@
-<?php include 'templates/header.php' ?>
-<div>ola</div>
-<?php include 'templates/footer.php' ?>
+<?php
+
+use Aplication\helpers\path\FilesPath;
+
+FilesPath::templateHeader(); ?>
+
+<div>Index...</div>
+
+<?php FilesPath::templateFooter(); ?>

@@ -2,11 +2,11 @@
 
 namespace Aplication\routes;
 
-use Aplication\controllers\filmes\AdicionarCriticaController;
-use Aplication\controllers\filmes\AdicionarFilmeController;
-use Aplication\controllers\filmes\FilmesController;
+use Aplication\controllers\movies\AddReviewController;
 use Aplication\controllers\home\HomeController;
-use Aplication\controllers\usuario\AutenticacaoController;
+use Aplication\controllers\movies\AddMovieController;
+use Aplication\controllers\users\AuthController;
+use Aplication\controllers\users\RegisterController;
 use Aplication\helpers\path\FilesPath;
 
 class Routes
@@ -20,23 +20,29 @@ class Routes
                 "controller" => HomeController::class,
                 "view" => FilesPath::view() . "index.php"
             ],
-            "/adicionar-filme" => [
+            "/add-movie" => [
                 "reqType" => "GET",
                 "method" => "index",
-                "controller" => AdicionarFilmeController::class,
-                "view" => FilesPath::view() . "filmes/adicionar-filme.php"
+                "controller" => AddMovieController::class,
+                "view" => FilesPath::view() . "movies/add-movie.php"
             ],
-            "/adicionar-critica" => [
+            "/add-review" => [
                 "reqType" => "GET",
                 "method" => "index",
-                "controller" => AdicionarCriticaController::class,
-                "view" => FilesPath::view() . "filmes/adicionar-critica.php"
+                "controller" => AddReviewController::class,
+                "view" => FilesPath::view() . "movies/add-review.php"
             ],
-            "/autenticacao" => [
+            "/login" => [
                 "reqType" => "GET",
                 "method" => "index",
-                "controller" => AutenticacaoController::class,
-                "view" => FilesPath::view() . "usuario/autenticacao.php"
+                "controller" => AuthController::class,
+                "view" => FilesPath::view() . "users/login.php"
+            ],
+            "/register" => [
+                "reqType" => "GET",
+                "method" => "index",
+                "controller" => RegisterController::class,
+                "view" => FilesPath::view() . "users/register.php"
             ]
         ];
     }
