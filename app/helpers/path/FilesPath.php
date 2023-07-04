@@ -14,13 +14,13 @@ class FilesPath
        return __DIR__."/../../views/";
     }
 
-    public static function templateHeader() : string
+    public static function templateHeader() : void
     {
-       return __DIR__."/../../views/templates/header.php";
+       include __DIR__."/../../views/templates/header.php";
     }
 
-    public static function templateFooter() : string
+    public static function templateFooter() : void
     {
-       return __DIR__."/../../views/templates/footer.php";
+       include __DIR__."/../../views/templates/footer.php";
     }
 }

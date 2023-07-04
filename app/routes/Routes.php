@@ -6,6 +6,7 @@ use Aplication\controllers\filmes\AdicionarCriticaController;
 use Aplication\controllers\filmes\AdicionarFilmeController;
 use Aplication\controllers\filmes\FilmesController;
 use Aplication\controllers\home\HomeController;
+use Aplication\controllers\usuario\AutenticacaoController;
 use Aplication\helpers\path\FilesPath;
 
 class Routes
@@ -30,6 +31,12 @@ class Routes
                 "method" => "index",
                 "controller" => AdicionarCriticaController::class,
                 "view" => FilesPath::view() . "filmes/adicionar-critica.php"
+            ],
+            "/autenticacao" => [
+                "reqType" => "GET",
+                "method" => "index",
+                "controller" => AutenticacaoController::class,
+                "view" => FilesPath::view() . "usuario/autenticacao.php"
             ]
         ];
     }

@@ -4,6 +4,6 @@ use Aplication\helpers\path\FilesPath;
 
 FilesPath::templateHeader(); ?>
 
-<div>Adicionando filme...</div>
+<div>Autenticação...</div>
 
 <?php FilesPath::templateFooter(); ?>
