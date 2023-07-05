@@ -11,25 +11,28 @@ class RoutesControll
 
     public function process(): void
     {
-        $params = $this->defineReq();
-        $method = $params['method'];
-        ($params['controller'])->$method();
+        $this->defineReq();
     }
 
 
-    private function defineReq(): array
+    private function defineReq(): void
     {
-        foreach (Routes::routes() as $key => $route) {
-            if ($key === RequestServer::reqPath() && $route['reqType'] === RequestServer::reqType()) {
+
+        foreach (Routes::routes() as $route) {
+
+            if ($route['url'] === RequestServer::reqPath() && $route['reqType'] === RequestServer::reqType()) {
 
                 $controller = new $route['controller'];
+                $method = $route['method'];
 
-                $checkMethod = method_exists($controller, $route['method']);
+                $checkMethod = method_exists($controller, $method);
 
                 if (!$checkMethod) {
                     throw new DomainException("Método não existe!");
                 }
-                return ["controller" => $controller, "method" => $route['method'], "reqType" => RequestServer::reqType()];
+
+                $controller->$method();
+                return;
             }
         }
 

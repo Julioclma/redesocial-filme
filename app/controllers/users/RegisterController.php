@@ -12,6 +12,7 @@ use Aplication\repository\User\RepositoryUser;
 
 class RegisterController extends DefaultController
 {
+
     public function create(): bool
     {
         $description = new Description("", "");

@@ -6,5 +6,5 @@ use Aplication\controllers\DefaultController;
 
 class AddMovieController extends DefaultController
 {
-    
+
 }

@@ -2,7 +2,9 @@
 
 use Aplication\helpers\path\FilesPath;
 
-FilesPath::templateHeader(); ?>
+FilesPath::templateHeader();
+
+ ?>
 
 <div>Index...</div>
 
