@@ -2,7 +2,7 @@
 
 namespace Aplication\repository\User;
 
-use Aplication\database\Connection;
+use Aplication\models\Email;
 use Aplication\models\User\CreateUser;
 use Aplication\models\User\RepositoryUserInterface;
 use PDO;
@@ -30,7 +30,12 @@ class RepositoryUser implements RepositoryUserInterface
         $stmt->bindValue(':password', $user->password());
         return $stmt->execute();
     }
-    public function auth()
+    public function auth(Email $email, string $password): bool
     {
-    }
+
+        
+        $sql = "SELECT * FROM {$this->table} WHERE email = :email AND password = :password";
+        $stmt = $this->pdo->prepare($sql);
+
+    } 
 }

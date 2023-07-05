@@ -29,7 +29,7 @@ class CreateUser
         }
         throw new InvalidArgumentException("As senhas devem ser iguais");
     }
-    private function checkPassword(string $password, $passwordConfirm): bool
+    private function checkPassword(string $password, string $passwordConfirm): bool
     {
         return  $password === $passwordConfirm ?  true :  false;
     }
