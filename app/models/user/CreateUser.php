@@ -24,7 +24,7 @@ class CreateUser
     private function definePassword(string $password, string $passwordConfirm): void
     {
         if ($this->checkPassword($password, $passwordConfirm)) {
-            $this->password = $password;
+            $this->password = password_hash($password, PASSWORD_DEFAULT);
             return;
         }
         throw new InvalidArgumentException("As senhas devem ser iguais");

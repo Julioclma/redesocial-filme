@@ -16,6 +16,7 @@ class HomeController extends DefaultController
         $this->addParams('movies', $movies->all());
 
         $params = $this->params;
+
         include($this->findViewPath());
     }
 }

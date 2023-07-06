@@ -32,19 +32,25 @@ class RepositoryUser implements RepositoryUserInterface
     }
     public function authenticate(Email $email, string $password): bool
     {
-        $sql = "SELECT id FROM {$this->table} WHERE email = :email AND password = :password";
+        $sql = "SELECT password FROM {$this->table} WHERE email = :email";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':email', $email->email());
-        $stmt->bindValue(':password', $password);
+
         $stmt->execute();
-        return $stmt->rowCount() > 0 ? true : false;
+
+        $stmt->rowCount() > 0 ? $content = $stmt->fetch() : $content = false;
+
+        if ($content !== false) {
+            return password_verify($password, $content['password']);
+        }
+
+        return false;
     }
     public function authContent(Email $email, string $password): array
     {
-        $sql = "SELECT * FROM {$this->table} WHERE email = :email AND password = :password";
+        $sql = "SELECT * FROM {$this->table} WHERE email = :email";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':email', $email->email());
-        $stmt->bindValue(':password', $password);
         $stmt->execute();
         return $stmt->fetchAll();
     }
