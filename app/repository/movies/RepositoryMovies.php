@@ -17,6 +17,15 @@ class RepositoryMovies implements RepositoryMoviesInterface
     {
         $this->pdo = $pdo;
     }
+
+    public function all(): array
+    {
+        $sql = "SELECT * FROM {$this->table}";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
+
     public function create(CreateMovie $movie): bool
     {
         $sql = "INSERT INTO {$this->table}
