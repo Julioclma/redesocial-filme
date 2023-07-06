@@ -11,19 +11,26 @@ use DomainException;
 class AuthController extends DefaultController
 {
 
-    public function authenticate(): bool
+    public function authenticate(): void
     {
         $authenticate = (new RepositoryUser(Connection::conn()))->authenticate(new Email($_POST['email']), $_POST['password']);
-
+        
         if ($authenticate) {
-            $this->auth($_POST['email'], $_POST['password']);
+            $_SESSION['autenticado'] = true;
+            $_SESSION['authContent  '] = $this->auth(new Email($_POST['email']), $_POST['password'])[0];
+            
+            
+var_dump($_SESSION);
+            return;
         }
 
-        throw new DomainException("Usuário não autenticado!");
+        $_SESSION['autenticado'] = false;
+
+        throw new DomainException("Falha ao autenticar usuário!");
     }
 
     private function auth(Email $email, string $password): array
     {
-       return (new RepositoryUser(Connection::conn()))->authId($email, $password);
+        return (new RepositoryUser(Connection::conn()))->authContent($email, $password);
     }
 }

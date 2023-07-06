@@ -39,9 +39,9 @@ class RepositoryUser implements RepositoryUserInterface
         $stmt->execute();
         return $stmt->rowCount() > 0 ? true : false;
     }
-    public function authId(Email $email, string $password): array
+    public function authContent(Email $email, string $password): array
     {
-        $sql = "SELECT id FROM {$this->table} WHERE email = :email AND password = :password";
+        $sql = "SELECT * FROM {$this->table} WHERE email = :email AND password = :password";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':email', $email->email());
         $stmt->bindValue(':password', $password);

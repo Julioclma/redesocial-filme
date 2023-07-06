@@ -44,6 +44,13 @@ class Routes
                 "controller" => AuthController::class,
                 "view" => FilesPath::view() . "users/login.php"
             ],
+            "logar" => [
+                "url" => "/login",
+                "reqType" => "POST",
+                "method" => "authenticate",
+                "controller" => AuthController::class,
+                "view" => FilesPath::view() . "users/login.php"
+            ],
             "register" => [
                 "url" => "/register",
                 "reqType" => "GET",

@@ -8,5 +8,5 @@ interface RepositoryUserInterface
 {
     public function create(CreateUser $user): bool;
     public function authenticate(Email $email, string $password): bool;
-    public function authId(Email $email, string $password): array;
+    public function authContent(Email $email, string $password): array;
 }
