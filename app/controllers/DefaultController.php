@@ -2,6 +2,7 @@
 
 namespace Aplication\controllers;
 
+use Aplication\controllers\home\HomeController;
 use Aplication\exceptions\ViewNotFound;
 use Aplication\helpers\server\RequestServer;
 use Aplication\routes\Routes;
@@ -10,11 +11,7 @@ class DefaultController
 {
     protected array $params = [];
 
-    public function index(): void
-    {
-        $params = $this->params;
-        include($this->findViewPath());
-    }
+
     protected function findViewPath(): string
     {
         foreach (Routes::routes() as $route) {
@@ -31,5 +28,21 @@ class DefaultController
     protected function addParams(string $key, array $value): void
     {
         $this->params += [$key => $value];
+    }
+
+    protected function isAuth(): bool
+    {
+        if (!empty($_SESSION) &&  array_key_exists('autenticado', $_SESSION)) {
+            if ($_SESSION['autenticado']) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    protected function redirectToHome(): void
+    {
+        header('Location: ' . Routes::routes()['home']['url']);
+        session_destroy();
     }
 }

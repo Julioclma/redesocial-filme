@@ -10,14 +10,22 @@ use DomainException;
 
 class AuthController extends DefaultController
 {
+    public function index(): void
+    {
+        $params = $this->params;
+        include($this->findViewPath());
+    }
 
     public function authenticate(): void
     {
-        $authenticate = (new RepositoryUser(Connection::conn()))->authenticate(new Email($_POST['email']), $_POST['password']);
-        
+        $email = filter_input(INPUT_POST, 'email');
+        $password = filter_input(INPUT_POST, 'password');
+
+        $authenticate = (new RepositoryUser(Connection::conn()))->authenticate(new Email($email), $password);
+
         if ($authenticate) {
             $_SESSION['autenticado'] = true;
-            $_SESSION['authContent'] = $this->auth(new Email($_POST['email']), $_POST['password'])[0];
+            $_SESSION['authContent'] = $this->auth(new Email($email), $password)[0];
             return;
         }
 

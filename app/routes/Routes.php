@@ -30,6 +30,13 @@ class Routes
                 "controller" => AddMovieController::class,
                 "view" => FilesPath::view() . "movies/add-movie.php"
             ],
+            "create-movie" => [
+                "url" => "/add-movie",
+                "reqType" => "POST",
+                "method" => "create",
+                "controller" => AddMovieController::class,
+                "view" => FilesPath::view() . "movies/add-movie.php"
+            ],
             "add-review" => [
                 "url" => "/add-review",
                 "reqType" => "GET",

@@ -12,19 +12,24 @@ use Aplication\repository\User\RepositoryUser;
 
 class RegisterController extends DefaultController
 {
+    public function index(): void
+    {
+        $params = $this->params;
+        include($this->findViewPath());
+    }
     public function create(): bool
     {
         $description = new Description("", "");
 
-        $user = new User($_POST['name'], $_POST['lastname']);
+        $user = new User(filter_input(INPUT_POST, 'name'), filter_input(INPUT_POST, 'lastname'));
 
-        $email = new Email($_POST['email']);
+        $email = new Email(filter_input(INPUT_POST, 'email'));
 
         $token = "";
 
-        $password = $_POST['password'];
+        $password = filter_input(INPUT_POST, 'password');
 
-        $passwordConfirm = $_POST['confirm_password'];
+        $passwordConfirm = filter_input(INPUT_POST, 'confirm_password');
 
         return (new RepositoryUser(Connection::conn()))->create(new CreateUser($description, $user, $email, $token, $password, $passwordConfirm));
     }
