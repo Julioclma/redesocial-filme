@@ -1,6 +1,7 @@
 <?php
 
 use Aplication\helpers\path\FilesPath;
+use Aplication\routes\Routes;
 
 ?>
 <!DOCTYPE html>
@@ -17,8 +18,9 @@ use Aplication\helpers\path\FilesPath;
     <nav>
         <div>
             <ul>
-                <li><a href="">Entrar</a></li>
-                <li><a href="">Cadastrar</a></li>
+                <li><a href="<?= Routes::routes()['home']['url'] ?>">Home</a></li>
+                <li><a href="<?= Routes::routes()['login']['url'] ?>">Entrar</a></li>
+                <li><a href="<?= Routes::routes()['register']['url'] ?>">Cadastrar</a></li>
             </ul>
         </div>
         <div>

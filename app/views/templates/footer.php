@@ -1,8 +1,13 @@
-       <footer>
+     <?php
+
+use Aplication\routes\Routes;
+
+     ?>
+     <footer>
            <div>
                <ul>
-                   <li><a href="">Adicionar Filme</a></li>
-                   <li><a href="">Adicionar critica</a></li>
+                   <li><a href="<?= Routes::routes()['add-movie']['url'] ?>">Adicionar Filme</a></li>
+                   <li><a href="<?= Routes::routes()['add-review']['url'] ?>">Adicionar critica</a></li>
                </ul>
            </div>
        </footer>
