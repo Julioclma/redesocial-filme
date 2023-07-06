@@ -7,3 +7,5 @@ session_start();
 use Aplication\routes\RoutesControll;
 
 (new RoutesControll)->process();
+
+print_r($_SESSION);

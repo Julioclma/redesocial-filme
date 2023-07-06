@@ -18,13 +18,10 @@ class AuthController extends DefaultController
         if ($authenticate) {
             $_SESSION['autenticado'] = true;
             $_SESSION['authContent'] = $this->auth(new Email($_POST['email']), $_POST['password'])[0];
-            
-            
-var_dump($_SESSION);
             return;
         }
 
-        $_SESSION['autenticado'] = false;
+        session_destroy();
 
         throw new DomainException("Falha ao autenticar usuário!");
     }
