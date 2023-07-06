@@ -38,4 +38,10 @@ class AuthController extends DefaultController
     {
         return (new RepositoryUser(Connection::conn()))->authContent($email, $password);
     }
+
+    public function logout(): void
+    {
+        session_destroy();
+        $this->redirectToHome();
+    }
 }

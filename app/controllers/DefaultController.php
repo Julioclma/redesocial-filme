@@ -43,6 +43,5 @@ class DefaultController
     protected function redirectToHome(): void
     {
         header('Location: ' . Routes::routes()['home']['url']);
-        session_destroy();
     }
 }
