@@ -11,7 +11,12 @@ class AddMovieController extends DefaultController
 {
     public function index(): void
     {
-        $this->isAuth() ?: $this->redirectToHome();
+
+        if (!$this->isAuth()) {
+            $this->redirectToHome();
+            return;
+        }
+
         $params = $this->params;
         include($this->findViewPath());
     }

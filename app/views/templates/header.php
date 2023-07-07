@@ -21,6 +21,7 @@ use Aplication\routes\Routes;
                 <li><a href="<?= Routes::routes()['home']['url'] ?>">Home</a></li>
                 <li><a href="<?= Routes::routes()['login']['url'] ?>">Entrar</a></li>
                 <li><a href="<?= Routes::routes()['register']['url'] ?>">Cadastrar</a></li>
+                <li><a href="<?= Routes::routes()['logout']['url'] ?>">Sair</a></li>
             </ul>
         </div>
         <div>
