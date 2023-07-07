@@ -90,7 +90,7 @@ class Routes
 
     public static function getCurrentRoute(): array
     {
-        foreach (self::routes() as $key => $route) {
+        foreach (self::routes() as $route) {
             if ($route['url'] === RequestServer::reqPath()) {
                 return $route;
             }

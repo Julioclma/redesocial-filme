@@ -8,10 +8,6 @@ var_dump($params);
 
 <div>Index...</div>
 <section id="cards">
-
-
-
-
     <?php foreach ($params['movies'] as $key => $movie) : ?>
         <div class="container-card">
             <div class="header-card">

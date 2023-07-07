@@ -5,7 +5,7 @@
     font-size: 13px;
 }
 body{
-    height: ;
+    background-color: black;
 }
 /*Header*/
 nav>div:nth-child(1)>ul {
@@ -112,15 +112,15 @@ footer>div>ul>li a {
 }
 #cards {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
     margin: auto;
 }
 
 /*card*/
 .container-card {
-    box-shadow: inset 0 0 1em gold, 0 0 1em rgba(0, 0, 0, 0.562);
-    flex-basis: 350px;
+    box-shadow: inset 0 0 1em gold, 0 0 1em rgba(255, 255, 255, 0.562);
+    flex-basis: 300px;
     margin: 10px 50px;
 }
 
