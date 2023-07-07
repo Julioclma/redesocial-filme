@@ -12,6 +12,7 @@ class DefaultController
     protected array $params = [];
 
 
+    
     protected function findViewPath(): string
     {
         foreach (Routes::routes() as $route) {

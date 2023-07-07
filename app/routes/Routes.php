@@ -5,6 +5,7 @@ namespace Aplication\routes;
 use Aplication\controllers\movies\AddReviewController;
 use Aplication\controllers\home\HomeController;
 use Aplication\controllers\movies\AddMovieController;
+use Aplication\controllers\movies\MoviesController;
 use Aplication\controllers\users\AuthController;
 use Aplication\controllers\users\RegisterController;
 use Aplication\helpers\path\FilesPath;
@@ -77,6 +78,12 @@ class Routes
                 "method" => "create",
                 "controller" => RegisterController::class,
                 "view" => FilesPath::view() . "users/register.php"
+            ],"my-movies" => [
+                "url" => "/movies",
+                "reqType" => "GET",
+                "method" => "index",
+                "controller" => MoviesController::class,
+                "view" => FilesPath::view() . "movies/my-movies.php"
             ]
         ];
     }

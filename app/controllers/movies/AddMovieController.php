@@ -9,14 +9,15 @@ use Aplication\repository\movies\RepositoryMovies;
 
 class AddMovieController extends DefaultController
 {
+    public function __construct()
+    {
+     if (!$this->isAuth()) {
+         $this->redirectToHome();
+         return;
+     }
+    }
     public function index(): void
     {
-
-        if (!$this->isAuth()) {
-            $this->redirectToHome();
-            return;
-        }
-
         $params = $this->params;
         include($this->findViewPath());
     }

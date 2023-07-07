@@ -38,4 +38,12 @@ class RepositoryMovies implements RepositoryMoviesInterface
         $stmt->bindValue(':users_id', $movie->userId());
         return $stmt->execute();
     }
+    public function getById(string $userId): array
+    {
+        $sql = "SELECT * FROM {$this->table} WHERE users_id = :users_id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':users_id', $userId);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    }
 }

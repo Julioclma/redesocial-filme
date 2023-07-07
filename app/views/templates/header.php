@@ -16,14 +16,14 @@ use Aplication\routes\Routes;
 
 <body>
     <nav>
-        <div>
-            <ul>
-                <li><a href="<?= Routes::routes()['home']['url'] ?>">Home</a></li>
-                <li><a href="<?= Routes::routes()['login']['url'] ?>">Entrar</a></li>
-                <li><a href="<?= Routes::routes()['register']['url'] ?>">Cadastrar</a></li>
-                <li><a href="<?= Routes::routes()['logout']['url'] ?>">Sair</a></li>
-            </ul>
-        </div>
+
+        <?php if (!empty($_SESSION['autenticado'])) : ?>
+            <div>
+                <li><a href="#">Bem vindo, <?= $_SESSION['authContent']['name'] ?></a></li>
+
+            </div>
+        <?php endif; ?>
+
         <div>
             <form action="#">
                 <input type="text" name="search">
@@ -31,4 +31,24 @@ use Aplication\routes\Routes;
             </form>
         </div>
 
+
+
+
+
+        <div id="container-links">
+            <?php if (!empty($_SESSION['autenticado'])) : ?>
+                <ul>
+                    <li><a href="<?= Routes::routes()['home']['url'] ?>">Home</a></li>
+                    <li><a href="<?= Routes::routes()['my-movies']['url'] ?>">Meus Filmes</a></li>
+                    <li><a href="<?= Routes::routes()['logout']['url'] ?>">Sair</a></li>
+                </ul>
+            <?php else : ?>
+                <ul>
+                    <li><a href="<?= Routes::routes()['home']['url'] ?>">Home</a></li>
+                    <li><a href="<?= Routes::routes()['login']['url'] ?>">Entrar</a></li>
+                    <li><a href="<?= Routes::routes()['register']['url'] ?>">Cadastrar</a></li>
+                </ul>
+
+            <?php endif; ?>
+        </div>
     </nav>
