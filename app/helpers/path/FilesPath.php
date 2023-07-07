@@ -23,4 +23,9 @@ class FilesPath
     {
        include __DIR__."/../../views/templates/footer.php";
     }
+
+    public static function templateCardsMovies() : void
+    {
+       include __DIR__."/../../views/templates/cards-movies.php";
+    }
 }
