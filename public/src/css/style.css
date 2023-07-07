@@ -4,7 +4,9 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 13px;
 }
-
+body{
+    height: ;
+}
 /*Header*/
 nav>div:nth-child(1)>ul {
     display: flex;
@@ -39,7 +41,7 @@ footer {
     align-items: center;
     justify-content: center;
     background-color: rgb(66, 66, 66);
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     padding: 25px 0;
@@ -88,3 +90,110 @@ footer>div>ul>li a {
     color: white;
     padding: 5px;
 }
+
+/*cards*/
+
+#container-filmes{
+    border: solid;
+    display: flex;
+}
+.card-filme{
+    display: flex;
+    flex-direction: column;
+    border: red solid;
+}
+#cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+/*card*/
+.container-card {
+    box-shadow: inset 0 0 1em gold, 0 0 1em rgba(0, 0, 0, 0.562);
+    flex-basis: 350px;
+    margin: 10px 50px;
+}
+
+.container-card>div {
+    padding: 25px 0px;
+}
+
+.container-card, .header-card {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.container-card, .footer-card {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.header-card{
+    padding: 0 !important;
+}
+.header-card img {
+ 
+    height: 250px;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    margin: 0 !important;
+}
+
+.footer-card-content{
+    display: flex;
+    justify-content: space-around;
+}
+
+.span-card {
+    font-size: 10px;
+    background-color: rgba(21, 21, 75, 0.911);
+    color: white;
+    padding: 7px;
+    border-radius: 2px;
+    margin: 0 0 15px 15px;
+}
+
+.content-card, .footer-card {
+    background-color: white;
+
+}
+
+.content-card>div, .footer-card div {
+    max-width: 90%;
+    margin: auto;
+}
+
+.content-card>div>div {
+    margin: 10px 0;
+}
+
+.span-content-card {
+    color: rgba(0, 0, 0, 0.61);
+    font-size: 15px;
+}
+
+.h2-content-card {
+    font-size: 28px;
+}
+
+.p-content-card {
+    font-size: 14.8px;
+
+}
+
+/*footer card*/
+.footer-card {
+    border-top: 1px solid rgba(0, 0, 0, 0.164);
+    padding: 15px 0 !important;
+}
+
+.span-footer-card {
+    font-size: 15px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.63);
+}
+
+/*fim card*/
