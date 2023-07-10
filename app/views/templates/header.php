@@ -15,6 +15,7 @@ use Aplication\routes\Routes;
 </head>
 
 <body>
+    <header>
     <nav>
 
         <?php if (!empty($_SESSION['autenticado'])) : ?>
@@ -52,3 +53,5 @@ use Aplication\routes\Routes;
             <?php endif; ?>
         </div>
     </nav>
+    </header>
+    <main>
